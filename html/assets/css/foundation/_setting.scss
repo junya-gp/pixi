@@ -1,0 +1,222 @@
+﻿@charset "utf-8";
+
+//==========================================================================
+//_setting.scss
+//==========================================================================
+
+//-----------------------------------------------------------------
+//var
+//-----------------------------------------------------------------
+//breakpoint
+$xs: 375;
+$sm: 768;
+$md: 1025;
+$lg: 1240;
+
+$xs-1: $xs - 1;
+$sm-1: $sm - 1;
+$md-1: $md - 1;
+$lg-1: $lg - 1;
+
+$xsMin: 'min-width:' + $xs + 'px';
+$smMin: 'min-width:' + $sm + 'px';
+$mdMin: 'min-width:' + $md + 'px';
+$lgMin: 'min-width:' + $lg + 'px';
+
+$xsMax: 'max-width:' + $xs-1 + 'px';
+$smMax: 'max-width:' + $sm-1 + 'px';
+$mdMax: 'max-width:' + $md-1 + 'px';
+$lgMax: 'max-width:' + $lg-1 + 'px';
+
+//design width
+$smDesignW: 750;
+$mdDesignW: $md;
+
+//font
+$font-ja: 'Noto Sans JP', sans-serif;
+$font-en: Arial;
+
+//key color
+$colorMain: #000;
+$colorPlain: #333;
+$colorFocus: #aaa;
+$colorBorder: #eee;
+$colorGray01: #eee;
+$colorGray02: #ccc;
+
+
+//margin
+$margin-xs: 20px;
+$margin-sm: 40px;
+$margin-md: 60px;
+$margin-lg: 80px;
+$margin-xl: 100px;
+
+//easing
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeInQuad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInCubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+$easeInQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+
+//-----------------------------------------------------------------
+//mixin
+//-----------------------------------------------------------------
+//font-size at < 375
+@mixin rem($fSize: 1.4) {
+  font-size:($fSize*1000)/375 + vw;
+}
+
+//vw
+@function sm_vw($size, $viewport:$smDesignW){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@function md_vw($size, $viewport:$mdDesignW){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+
+//base easing
+@mixin transition {
+  transition: all .3s $easeOutCubic;
+}
+
+//media query
+@mixin xsMin {
+  @media print, screen and ($xsMin) {
+    @content;
+  }
+}
+@mixin smMin {
+  @media print, screen and ($smMin) {
+    @content;
+  }
+}
+@mixin mdMin {
+  @media print, screen and ($mdMin) {
+    @content;
+  }
+}
+@mixin lgMin {
+  @media print, screen and ($lgMin) {
+    @content;
+  }
+}
+@mixin xsMax {
+  @media screen and ($xsMax) {
+    @content;
+  }
+}
+@mixin smMax {
+  @media screen and ($smMax) {
+    @content;
+  }
+}
+@mixin mdMax {
+  @media screen and ($mdMax) {
+    @content;
+  }
+}
+@mixin lgMax {
+  @media screen and ($lgMax) {
+    @content;
+  }
+}
+@mixin max-screen($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin min-screen($breakpoint) {
+  @media print, screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin screen($breakpoint-min, $breakpoint-max) {
+  @media screen and (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
+    @content;
+  }
+}
+
+//hover
+@mixin hover {
+  @include smMin {
+    .is-view-pc & {
+      &:hover {
+        @content;
+      }
+    }
+  }
+}
+
+
+//-----------------------------------------------------------------
+//anime
+//-----------------------------------------------------------------
+//fadeIn
+@mixin animate-fadeIn($duration, $delay) {
+  opacity: 0;
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+@mixin animated-fadeIn {
+  opacity: 1;
+}
+
+//fadeInUp
+@mixin animate-fadeInUp($duration, $delay) {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+@mixin animated-fadeInUp {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+//fadeInLeft
+@mixin animate-fadeInLeft($duration, $delay) {
+  opacity: 0;
+  transform: translateX(50px);
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+@mixin animated-fadeInLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+//fadeInRight
+@mixin animate-fadeInRight($duration, $delay) {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition-duration: $duration;
+  transition-delay: $delay;
+}
+@mixin animated-fadeInRight {
+  opacity: 1;
+  transform: translateX(0);
+}
+

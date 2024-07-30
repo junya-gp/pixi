@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@import "foundation/_setting.scss";
+@import "foundation/_default.scss";
+@import "foundation/_base.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Mochiy+Pop+P+One&subset=japanese&display=swap");
+//@import url("https://fonts.googleapis.com/css?family=Mochiy+Pop+P+One&family=Noto+Sans+JP:400,700&subset=japanese&display=swap");
+
+body {
+	font-family: 'Mochiy Pop P One';
+	cursor: url(../img/cursol.png), auto!important;
+}
+
+#app {
+	canvas {
+		width: 100% !important;
+		height: 100vh !important;
+	}
+	video {
+		display: none;
+	}
+}
