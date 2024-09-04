@@ -110,5 +110,4 @@ const app = new PIXI.Application();
         // Increment the ticker
         tick += 0.1;
     });
-    console.log('Current renderer:', app.renderer.constructor.gpu);
 })();

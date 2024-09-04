@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>【pixi】01</title>
+	<link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<main>
+		<h1>v8とv7の比較</h1>
+		<ul>
+			<li><a href="v8.html">サンプルページ【v8】</a></li>
+			<li><a href="v7.html">サンプルページ【v7】</a></li>
+		</ul>
+		<h2>参考</h2>
+		<ul>
+			<li><a href="https://pixijs.com/blog/pixi-v8-launches">PixiJS v8 Launches!</a></li>
+			<li><a href="https://zenn.dev/chiietc/articles/2e9295eca42843">PixiJS v8のマイグレーションガイドを読んでみる</a></li>
+		</ul>
+		<h2>メモ</h2>
+		<ul>
+			<li>v8からWebGPUに対応</li>
+			<li>比較としてv7も用意したがあまり差は体感できず</li>
+			<li>レンダラーがWebGPUになってるのか確認したいがよくわからず</li>
+		</ul>
+		<h2>記述の変更</h2>
+<pre><code>const app = new Application();
+
+(async () => {
+	await app.init({
+		//オプション
+	});
+	//ここに書く
+})()</code></pre>
+<pre><code>app.view //v7まで
+app.canvas //v8から</code></pre>
+	</main>
+</body>
+</html>
