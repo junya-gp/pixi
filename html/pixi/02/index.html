@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>【pixi】02</title>
+	<link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<main>
+		<h1>モジュールとMeshPlane</h1>
+		<ul class="demo">
+			<li><a href="demo/">サンプルページ</a></li>
+		</ul>
+		<h2>参考</h2>
+		<ul>
+			<li><a href="https://pixijs.com/8.x/examples/basic/mesh-plane" target="_blank">Mesh Planeのサンプル</a></li>
+			<li><a href="https://pixijs.com/8.x/guides/components/graphics" target="_blank">graphics.circle()の参考</a></li>
+		</ul>
+		<h2>今回から</h2>
+		<ul>
+			<li>PixiJS本体をCDN読み込みから、モジュールに変更</li>
+			<li>PIXI.xxxxのPIXIは不要になった（ほかにも記述方法の変更がいくつか）</li>
+		</ul>
+		<h2>import</h2>
+		<ul>
+			<li>Application</li>
+			<li><b>MeshPlane</b></li>
+			<li>Assets</li>
+			<li><b>Geometry</b></li>
+			<li><b>Graphics</b></li>
+			<li>advanced-blend-modes</li>
+		</ul>
+		<h2>メモ</h2>
+		<ul>
+			<li>参考はMeshPlaneにテクスチャ貼って頂点をアニメーション</li>
+			<li>頂点を可視化したかったので平面の上に追加</li>
+			<li>Geometry：頂点用</li>
+			<li>Graphics：描画用</li>
+		</ul>
+		<pre><code>vertexGraphics.circle(positions[i], positions[i + 1], 2).fill(0xff0000);</code></pre>
+
+		<a href="/pixi/" class="home">HOME</a>
+	</main>
+</body>
+</html>

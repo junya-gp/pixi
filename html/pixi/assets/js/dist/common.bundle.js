@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("common.js"),console.log("module.js")})();

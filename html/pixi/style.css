@@ -18,20 +18,24 @@ a {
 li {
 	list-style-type: none;
 	font-size: 18px;
-	+ li {
-		margin-top: 15px;
-	}
+}
+li + li {
+	margin-top: 15px;
+}
+li b {
+	color: #E72264;
 }
 h1 {
 	font-size: 28px;
-	padding-bottom: 20px;
-	border-bottom: solid 3px #FFF;
 	margin-bottom: 50px;
+  color: #FFF;
+	background: #e72264;
+	line-height: 0.9;
 }
 h2 {
 	font-size: 22px;
 	padding-bottom: 10px;
-	border-bottom: solid 1px #FFF;
+	border-bottom: solid 1px #e72264;
 	margin-top: 80px;
 	margin-bottom: 30px;
 }
@@ -39,7 +43,16 @@ pre {
 	margin-top: 15px;
 	padding: 10px;
 	background: rgba(255,255,255,0.1);
-	code {
-		font-size: 12px;
-	}
+}
+code {
+	font-size: 12px;
+}
+.demo {
+	padding: 20px;
+	border: solid 1px #E72264;
+}
+.home {
+	margin-top: 60px;
+	display: block;
+	text-align: center;
 }
