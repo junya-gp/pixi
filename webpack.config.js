@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     // エントリーポイントのファイル名をキーにする
     common: './html/pixi/assets/js/src/common.js', // サイト共通
-    pixi02: './html/pixi/assets/js/src/pages/pixi02/index.js', // TOPページ
+    pixi03: './html/pixi/assets/js/src/pages/pixi03/index.js', // TOPページ
   },
 
   // ファイルの出力設定
